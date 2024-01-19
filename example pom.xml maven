@@ -1,0 +1,38 @@
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <!--                        istruisce maven di creare il fatjar cioè il jar con tutte le dipendenze all'interno-->
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <!--                        manifest definisce qual'è la classe main che fa partire tutto il progetto-->
+                        <manifest>
+                            <mainClass>it.gatta.progetto1.Progetto1</mainClass>
+                        </manifest>
+                       
+                    </archive>
+                    <!--                    <compilerArgs>
+                        <argLine> add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+                    </compilerArgs> -->
+                </configuration>
+               
+            </plugin>
+        </plugins>
+    </build>
